@@ -16,7 +16,7 @@ my @items = split("[\r\n]+", $file_contents);
 
 my $count = 0;
 
-my $times = 1000;
+my $times = int($ARGV[1]);
 
 # Create a hash of the lines (line string as key, incrementing number as value). 
 # (We aren't timing the creation of the hash map, just the access performance)
@@ -38,7 +38,7 @@ for (my $i =0; $i < $times; ++$i)
 my $lap = time;
 print "hash: ", $lap - $mark, " seconds\n";
 
-print "find using index\n";
+print "find using index (perl strstr)\n";
 $mark = time;
 for (my $i =0; $i < $times; ++$i)
 {
